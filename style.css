@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DynaPuff", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+
+  background: url("bg.jpg") center / cover no-repeat fixed;
+  color: #5a3e36;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 228, 236, 0.55);
+  z-index: -1;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 26px;
+  border-radius: 28px;
+  background: #fffafa;
+  box-shadow: 0 20px 40px rgba(255, 182, 193, 0.35);
+  animation: fadeIn 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+p {
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Image above question */
+.question-img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 14px 0;
+}
+
+/* Buttons */
+button {
+  font-family: "DynaPuff", sans-serif;
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #ffb6c1;
+  color: #5a3e36;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  background: #ff9eb5;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Options */
+.options button {
+  background: #ffe4ec;
+}
+
+.options button:hover {
+  background: #ffd1dc;
+}
+
+/* Input */
+input {
+  font-family: "DynaPuff", sans-serif;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 999px;
+  border: 2px solid #ffd1dc;
+  font-size: 16px;
+  outline: none;
+}
+
+/* QR */
+.qr {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.qr img {
+  width: 220px;
+  background: white;
+  padding: 14px;
+  border-radius: 24px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 16px;
+}
+
+#tapOverlay {
+  background: linear-gradient(180deg, #ffe4ec, #fff1f5);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-size: 22px;
+  color: #5a3e36;
+  cursor: pointer;
+}
+
+.feedback {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 228, 236, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.feedback.hidden {
+  display: none;
+}
+
+.feedback-card {
+  background: #fffafa;
+  padding: 20px;
+  border-radius: 24px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(255, 182, 193, 0.4);
+  animation: pop 0.3s ease;
+}
+
+.feedback-card img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 12px;
+}
+
+.feedback-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#herWord {
+  font-size: 28px;
+  margin-top: 6px;
+  color: #ff7aa2;
+  text-align: center;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  top: -10px;
+  animation: fall 3s linear forwards;
+  z-index: 1200;
+  border-radius: 2px;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.heart {
+  position: fixed;
+  bottom: 20px;
+  font-size: 20px;
+  animation: floatUp 2s ease forwards;
+  z-index: 1200;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}

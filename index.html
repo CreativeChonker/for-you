@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>For You 💗</title>
+    <link rel="icon" type="image/png" href="favicon_io/favicon.ico" />
+
+    <!-- Google Font: DynaPuff -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 🎵 Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="song.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- 👆 Tap to start overlay -->
+    <div id="tapOverlay">
+      <p>tap anywhere 💗</p>
+    </div>
+
+    <!-- STEP 1: INTRO -->
+    <div class="card" id="step1">
+      <img src="point.png" class="question-img" />
+      <h1>Hi my favorite person 💗</h1>
+      <p>
+        Answer a few questions first<br />
+        so I know it’s you.
+      </p>
+      <button onclick="nextStep(2)">I’m ready</button>
+    </div>
+
+    <!-- STEP 2: QUESTION 1 -->
+    <div class="card hidden" id="step2">
+      <h1>Question 1</h1>
+      <img src="1.png" class="question-img" />
+      <p>Who is this?</p>
+
+      <div class="options">
+        <button onclick="handleAnswer(true, 3)">Moo Deng</button>
+        <button onclick="handleAnswer(false)">Moo Donut</button>
+        <button onclick="handleAnswer(false)">Moo Dingdong</button>
+        <button onclick="handleAnswer(false)">Moo Potato</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: QUESTION 2 -->
+    <div class="card hidden" id="step3">
+      <h1>Question 2</h1>
+      <img src="2.jpg" class="question-img" />
+      <p>What kind of animal is this?</p>
+
+      <div class="options">
+        <button onclick="handleQ2(false)">Pig</button>
+        <button onclick="handleQ2(false)">Cow</button>
+        <button onclick="handleQ2(false)">Elephant</button>
+        <button onclick="handleQ2(true, 4)">Dog</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: QUESTION 3 -->
+    <div class="card hidden" id="step4">
+      <h1>Question 3</h1>
+      <img src="cute.jpg" class="question-img" />
+      <p>What am I?</p>
+
+      <div class="options">
+        <button onclick="handleQ3(true, 5)">Cute</button>
+        <button onclick="handleQ3(true, 5)">Cute</button>
+        <button onclick="handleQ3(true, 5)">Cute</button>
+        <button onclick="handleQ3(true, 5)">Cute</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: WORD INPUT -->
+    <div class="card hidden" id="step5">
+      <h1>Be honest</h1>
+      <p>One word that describes us</p>
+      <input placeholder="Type here…" />
+      <button onclick="saveWord()">Continue</button>
+    </div>
+
+    <!-- STEP 6: PHOTO + HER WORD -->
+    <div class="card hidden" id="step6">
+      <img src="us.jpg" class="question-img" />
+      <p>You said we are…</p>
+      <h2 id="herWord"></h2>
+      <button onclick="nextStep(7)">Continue</button>
+    </div>
+
+    <!-- STEP 7: GIFT -->
+    <div class="card hidden" id="step7">
+      <h1>I have something for you</h1>
+      <img src="gift.png" class="question-img" />
+      <button onclick="openGift()">Open gift</button>
+    </div>
+
+    <!-- STEP 8: QR -->
+    <div class="card hidden" id="step8">
+      <h1>Happy Birthday & Happy New Year 🎀</h1>
+      <p>
+        Scan this when you’re ready.<br />
+        This is just for you
+      </p>
+
+      <div class="qr">
+        <img id="qrImg" alt="QR Code" />
+      </div>
+    </div>
+
+    <!-- FEEDBACK CARD -->
+    <div id="feedbackOverlay" class="feedback hidden">
+      <div class="feedback-card">
+        <img id="feedbackImg" />
+        <p id="feedbackText"></p>
+        <button id="feedbackBtn">OK 💗</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
